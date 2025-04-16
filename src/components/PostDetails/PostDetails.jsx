@@ -1,8 +1,14 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigate } from 'react-router';
 
 const PostDetails = () => {
+    const navigate = useNavigate();
     const post = useLoaderData();
+
+    const handleBack = () => {
+        navigate(-1)
+    }
+
     
     return (
         <div>
@@ -10,6 +16,7 @@ const PostDetails = () => {
             <p>Id : {post.userId }</p>
             <p>{post.title}</p>
             <p>{post.body}</p>
+            <button onClick={handleBack}>Go Back</button>
         </div>
     );
 };
